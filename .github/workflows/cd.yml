@@ -22,4 +22,5 @@ jobs:
             git pull origin master
             npm install
             npm run migrate up
-            NODE_ENV=production pm2 restart auth-api
+            pm2 delete auth-api || true
+            NODE_ENV=production pm2 start auth-api

@@ -22,5 +22,5 @@ jobs:
             git pull origin master
             npm install
             npm run migrate up
-            pm2 delete auth-api || true
+            pm2 delete auth-api 2>/dev/null || echo "No existing process"
             NODE_ENV=production pm2 start auth-api
